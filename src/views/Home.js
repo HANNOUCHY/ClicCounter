@@ -1,5 +1,7 @@
 import React from 'react';
-
+import Increment from './Increment';
+import Decrease from './Decrease';
+import ViewClick from './ViewClick';
 function Home({
   onIncrement,
   onDecrease,
@@ -7,14 +9,11 @@ function Home({
 }) {
   return (
     <div>
-      <button onClick={onIncrement}>
-      Cliquez pour incrémenter de 1
-      </button>
+      <Increment title="Cliquez pour incrémenter de 1" onIncrement={onIncrement} />
       <br/>
-      <button onClick={onDecrease} disabled={counter<1 ? true : false}>
-      Cliquez pour diminuer de 1
-      </button>
-      <p>Vous avez cliqué {counter} fois</p>
+      <Decrease title="Cliquez pour diminuer de 1" onDecrease={onDecrease} counter={counter} />
+
+      <ViewClick counter={counter} />
     </div>
   );
 };
